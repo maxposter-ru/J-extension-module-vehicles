@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6" client="site" method="upgrade">
+    <name>mod_maxposter_vehicles</name>
+    <creationDate>2012-04-05</creationDate>
+    <author>Святослав Астахов</author>
+    <authorEmail>astahov@maxposter.ru</authorEmail>
+    <authorUrl>http://maxposter.ru</authorUrl>
+    <copyright>Copyright (C) 2011-2012 maxposter.ru. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <packager>Святослав Астахов</packager>
+    <packagerurl>http://teleta.ru</packagerurl>
+    <releaseDate>2012-04-09</releaseDate>
+    <releaseType>Beta</releaseType>
+    <version>17.0.1</version>
+    <downloadUrl>https://bitbucket.org/maxposter/jextension-module-vehicles/get/master.zip</downloadUrl>
+    <update>https://bitbucket.org/maxposter/jextensions/raw/gh-pages/module_vehicles.xml</update>
+    <description>MOD_MAXPOSTER_VEHICLES_XML_DESCRIPTION</description>
+
+    <files>
+        <filename module="mod_maxposter_vehicles">mod_maxposter_vehicles.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+    </files>
+
+    <media destination="maxposter/mod_vehicles" folder="media">
+        <folder>media</folder>
+    </media>
+
+    <languages folder="language">
+        <language tag="ru-RU">ru-RU.mod_maxposter_vehicles.ini</language>
+        <language tag="ru-RU">ru-RU.mod_maxposter_vehicles.sys.ini</language>
+    </languages>
+
+    <help key="JHELP_EXTENSIONS_MODULE_MANAGER_MAXPOSTER_VEHICLES" />
+
+    <dependencies>
+        <dependency type="component" name="com_maxposter" operator=">=" version="17.0.3" />
+    </dependencies>
+
+    <updateservers>
+        <server type="collection" priority="1" name="MaxPoster on BitBucket">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/list.xml</server>
+        <server type="extension" priority="1" name="MaxPoster on BitBucket module">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/module_vehicles.xml</server>
+        <server type="collection" priority="2" name="MaxPoster on GitHub">http://maxposter-ru.github.com/J-extensions/list.xml</server>
+        <server type="extension" priority="2" name="MaxPoster on GitHub module">http://maxposter-ru.github.com/J-extensions/module_vehicles.xml</server>
+    </updateservers>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="api_limit"
+                    type="text"
+                    size="2"
+                    default="3"
+                    filter="INT"
+                    label="MOD_MAXPOSTER_VEHICLES_API_LIMIT_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_API_LIMIT_DESC" />
+                <field
+                    name="photo_size"
+                    type="sql"
+                    default="120x90"
+                    label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_LABEL"
+                    description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_DESC"
+                    query="SELECT value FROM #__maxposter WHERE name='photo_size'"
+                    key_field="value"
+                    value_field="value" />
+            </fieldset>
+            <fieldset name="filter" label="MOD_MAXPOSTER_VEHICLES_FILTER_FIELDSET_LABEL" addfieldpath="/administrator/components/com_maxposter/elements/">
+                <field
+                    name="filter_mark"
+                    type="filter"
+                    property="mark_id"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_MARK_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_MARK_DESC" />
+                <field
+                    name="filter_model"
+                    type="filter"
+                    property="model_id"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_MODEL_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_MODEL_DESC" />
+                <field
+                    name="filter_year_from"
+                    type="filter"
+                    property="year_id"
+                    default=""
+                    required="false"
+                    multiple="false"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_YEAR_FROM_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_YEAR_FROM_DESC" />
+                <field
+                    name="filter_year_to"
+                    type="filter"
+                    property="year_id"
+                    default=""
+                    required="false"
+                    multiple="false"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_YEAR_TO_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_YEAR_TO_DESC" />
+                <field
+                    name="filter_steering_wheel"
+                    type="filter"
+                    property="steering_wheel"
+                    default=""
+                    required="false"
+                    multiple="false"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_STEERING_WHEEL_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_STEERING_WHEEL_DESC" />
+                <field
+                    name="filter_engine_type"
+                    type="filter"
+                    property="engine_type"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_ENGINE_TYPE_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_ENGINE_TYPE_DESC" />
+                <field
+                    name="filter_drive_type"
+                    type="filter"
+                    property="drive_type"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_DRIVE_TYPE_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_DRIVE_TYPE_DESC" />
+                <field
+                    name="filter_gearbox_type"
+                    type="filter"
+                    property="gearbox_type"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_GEARBOX_TYPE_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_GEARBOX_TYPE_DESC" />
+                <field
+                    name="filter_body_type"
+                    type="filter"
+                    property="body_type"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_BODY_TYPE_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_BODY_TYPE_DESC" />
+                <field
+                    name="filter_availability"
+                    type="filter"
+                    property="availability"
+                    default=""
+                    required="false"
+                    multiple="true"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_AVAILABILITY_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_AVAILABILITY_DESC" />
+                <field
+                    name="filter_price_from"
+                    type="text"
+                    size="11"
+                    default=""
+                    filter="INT"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_PRICE_FROM_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_PRICE_FROM_DESC" />
+                <field
+                    name="filter_price_to"
+                    type="text"
+                    size="11"
+                    default=""
+                    filter="INT"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_PRICE_TO_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_PRICE_TO_DESC" />
+                <field
+                    name="filter_distance_from"
+                    type="text"
+                    size="9"
+                    default=""
+                    filter="INT"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_DISTANCE_FROM_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_DISTANCE_FROM_DESC" />
+                <field
+                    name="filter_distance_to"
+                    type="text"
+                    size="9"
+                    default=""
+                    filter="INT"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_DISTANCE_TO_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_DISTANCE_TO_DESC" />
+
+                <field
+                    name="filter_special"
+                    type="list"
+                    default="0"
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_SPECIAL_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_SPECIAL_DESC">
+                    <option value="0">JNO</option>
+                    <option value="yes">MOD_MAXPOSTER_VEHICLES_FILTER_SPECIAL_VALUE_WITH</option>
+                    <option value="no">MOD_MAXPOSTER_VEHICLES_FILTER_SPECIAL_VALUE_WITHOUT</option>
+                </field>
+                <field
+                    name=""
+                    type="spacer"
+                    hr="false"
+                    class=""
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_LABEL" />
+                <field
+                    name="filter_order_by"
+                    type="list"
+                    multiple="false"
+                    default=""
+                    class=""
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_DESC">
+                    <option value="">JNO</option>
+                    <option value="date">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_VALUE_DATE</option>
+                    <option value="name">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_VALUE_NAME</option>
+                    <option value="price">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_VALUE_PRICE</option>
+                    <option value="year">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_VALUE_YEAR</option>
+                    <option value="distance">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_BY_VALUE_DISTANCE</option>
+                </field>
+                <field
+                    name="filter_order_direction"
+                    type="list"
+                    default=""
+                    label="MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_DIRECTION_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_DIRECTION_DESC">
+                    <option value="">JNO</option>
+                    <option value="asc">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_DIRECTION_VALUE_ASCENDING</option>
+                    <option value="desc">MOD_MAXPOSTER_VEHICLES_FILTER_ORDER_DIRECTION_VALUE_DESCENDING</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field
+                    name="api_request"
+                    type="list"
+                    default="vehicles"
+                    label="MOD_MAXPOSTER_VEHICLES_API_REQUEST_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_API_REQUEST_DESC">
+                    <option value="vehicles">MOD_MAXPOSTER_VEHICLES_API_REQUEST_VALUE_VEHICLES</option>
+                    <option value="full_vehicles">MOD_MAXPOSTER_VEHICLES_API_REQUEST_VALUE_FULLVEHICLES</option>
+                </field>
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

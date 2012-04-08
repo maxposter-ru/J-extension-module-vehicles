@@ -1,0 +1,65 @@
+.maxposter-module-vehicles {
+    position:relative;
+    overflow:hidden;
+    }
+
+.maxposter-module-vehicles .maxposter-item {
+    margin:0;
+    padding:0;
+    }
+    .maxposter-module-vehicles .maxposter-item .maxposter-item-wrapper {
+        }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text {
+            margin-top:.5em;
+            }
+        .maxposter-module-vehicles .maxposter-item .maxposter-photo,
+        .maxposter-module-vehicles .maxposter-item .maxposter-text {
+            text-align:center;
+            position:relative;
+            }
+            .maxposter-module-vehicles .maxposter-item .maxposter-photo a {
+                display:block;
+                position:relative;
+                margin:0 auto;
+                overflow:hidden;
+                }
+                .maxposter-module-vehicles .maxposter-item .maxposter-photo a .maxposter-icon-special {
+                    position:absolute;
+                    right:-5px;
+                    top:-5px;
+                    width:10px;
+                    height:10px;
+                    z-index:9999;
+                    }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text p {
+            white-space:nowrap;
+            text-align:center;
+            font-size:1em;
+            line-height:140%;
+            margin:0;padding:0;
+            }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text h4 {
+            position:relative;
+            text-align:center;
+            overflow:hidden;
+            }
+            .maxposter-module-vehicles .maxposter-item .maxposter-text h4 a {
+                white-space:nowrap;
+                }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text h4 > span {
+            background:transparent;
+            position:absolute;
+            right:0;
+            top:0;
+            width:20px;
+            height:100%;
+            z-index:9999;
+            }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text .maxposter-price {
+            font-size:1.3em;
+            }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text .maxposter-previous-price {
+            text-decoration:line-through;
+            }
+        .maxposter-module-vehicles .maxposter-item .maxposter-text .maxposter-previous-price-placeholder {
+            }
