@@ -11,7 +11,7 @@
     <packagerurl>http://teleta.ru</packagerurl>
     <releaseDate>2012-04-09</releaseDate>
     <releaseType>Beta</releaseType>
-    <version>17.0.1</version>
+    <version>17.0.1.2</version>
     <downloadUrl>https://bitbucket.org/maxposter/jextension-module-vehicles/get/master.zip</downloadUrl>
     <update>https://bitbucket.org/maxposter/jextensions/raw/gh-pages/module_vehicles.xml</update>
     <description>MOD_MAXPOSTER_VEHICLES_XML_DESCRIPTION</description>
@@ -23,7 +23,8 @@
     </files>
 
     <media destination="maxposter/mod_vehicles" folder="media">
-        <folder>media</folder>
+        <filename>index.html</filename>
+        <folder>css</folder>
     </media>
 
     <languages folder="language">
@@ -34,7 +35,7 @@
     <help key="JHELP_EXTENSIONS_MODULE_MANAGER_MAXPOSTER_VEHICLES" />
 
     <dependencies>
-        <dependency type="component" name="com_maxposter" operator=">=" version="17.0.3" />
+        <dependency type="component" name="com_maxposter" operator=">=" version="17.0.3.3" />
     </dependencies>
 
     <updateservers>
@@ -64,7 +65,44 @@
                     query="SELECT value FROM #__maxposter WHERE name='photo_size'"
                     key_field="value"
                     value_field="value" />
+                <field
+                    name="view_show_price"
+                    type="radio"
+                    default="1"
+                    label="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_PRICE_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_PRICE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                    name="view_show_special_icon"
+                    type="radio"
+                    default="1"
+                    label="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_SPECIAL_ICON_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_SPECIAL_ICON_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                    name="view_show_priceold"
+                    type="radio"
+                    default="1"
+                    label="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_PRICEOLD_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_PRICEOLD_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                    name="view_show_year"
+                    type="radio"
+                    default="1"
+                    label="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_YEAR_LABEL"
+                    description="MOD_MAXPOSTER_VEHICLES_VIEW_SHOW_YEAR_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
             </fieldset>
+
             <fieldset name="filter" label="MOD_MAXPOSTER_VEHICLES_FILTER_FIELDSET_LABEL" addfieldpath="/administrator/components/com_maxposter/elements/">
                 <field
                     name="filter_mark"

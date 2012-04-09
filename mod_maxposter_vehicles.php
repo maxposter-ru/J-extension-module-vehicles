@@ -33,9 +33,8 @@ $params->merge($maxParams);
 $maxComponent = JComponentHelper::getComponent('com_maxposter');
 $menu = $app->getMenu();
 $items = $menu->getItems('component_id', $maxComponent->id);
-$maxItem = (!empty($items['0']) ? sprintf('&Itemid=%d', $items['0']->id) : '');
+$menuId = (!empty($items['0']) ? sprintf('&Itemid=%d', $items['0']->id) : '');
 # $maxLayout = ($maxLayout = $params->getValue('max_layout', '')) ? sprintf('&layout=%s', $maxLayout) : '';
-$maxRoute = JRoute::_(sprintf('index.php?option=com_maxposter&view=list%s', $maxItem));
 
 // MaxPoster libraries
 jimport('maxposter.maxCacheHtmlClient');

@@ -1,0 +1,8 @@
+mod_maxposter_vehicles
+======================
+
+Can be used to display custom sets of vehicles filtered by a lot of conditions
+
+TODO:
+
+* ability to choose one of components menu ItemId (now first used)
